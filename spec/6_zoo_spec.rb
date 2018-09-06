@@ -25,23 +25,22 @@ RSpec.describe Zoo do
     end
   end
 
-  # describe "#open?" do
-  #   it "should be open if it's within season open and close dates" do
-  #     date = Date.parse("2015/05/01")
-  #     expect(zoo.open?(date)).to be true
-  #   end
-  #
-  #   it "should not be open if it's out season open and close dates" do
-  #     date = Date.parse("2015/3/1")
-  #     date = Date.parse("2015/12/16")
-  #     expect(zoo.open?(date)).to be false
-  #   end
-  # end
+  describe "#open?" do
+    it "should be open if it's within season open and close dates" do
+      date = Date.parse("2015/05/01")
+      expect(zoo.open?(date)).to be true
+    end
+
+    it "should not be open if it's out season open and close dates" do
+      date = Date.parse("2015/3/1")
+      date = Date.parse("2015/12/16")
+      expect(zoo.open?(date)).to be false
+    end
+  end
 
   describe "#add_animal" do
     it "should add an animal to the first open cage" do
       gorilla = Gorilla.new("Bollo")
-      binding.pry
       zoo.add_animal(gorilla)
       expect(zoo.cages.first.animal).to be_a(Gorilla)
       zoo.cages[1..-1].each do |cage|

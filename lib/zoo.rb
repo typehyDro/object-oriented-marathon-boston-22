@@ -28,7 +28,24 @@ class Zoo
       end
     end
   end
-end
 
-# zoo = Zoo.new
-# zoo.employees = zoo.employees.push(new_employee)
+  def open?(date)
+    @season_opening_date <= date && @season_closing_date >= date
+  end
+
+  def visit
+    stuff_said = ""
+
+    @employees.each do |employee|
+      stuff_said << "#{employee.greet}\n"
+    end
+
+    @cages.each do |cage|
+      if !cage.empty?
+        stuff_said << "#{cage.animal.speak}\n"
+      end
+    end
+
+    stuff_said
+  end
+end

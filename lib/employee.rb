@@ -13,5 +13,4 @@ attr_reader :name, :title
   def greet
     "#{@name} waved hello!"
   end
-
 end
